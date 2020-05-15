@@ -2,7 +2,7 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
 
-import CollectionOverview from './collections-overview.component';
+import CollectionsOverview from './collections-overview.component';
 import Spinner from '../spinner/spinner.component';
 
 const GET_COLLECTIONS = gql`
@@ -20,13 +20,13 @@ const GET_COLLECTIONS = gql`
   }
 `;
 
-const CollectionOverviewContainer = () => (
+const CollectionsOverviewContainer = () => (
   <Query query={GET_COLLECTIONS}>
     {({ loading, data }) => {
       if (loading) return <Spinner />;
-      return <CollectionOverview collections={data.collections} />;
+      return <CollectionsOverview collections={data.collections} />;
     }}
   </Query>
 );
 
-export default CollectionOverviewContainer;
+export default CollectionsOverviewContainer;
